@@ -1,4 +1,5 @@
 import React from 'react';
+import House from '../house';
 
 const FeaturedHouse = (props) => {
 	if(props.house) return (
@@ -8,7 +9,8 @@ const FeaturedHouse = (props) => {
 					Featured house
 				</h3>
 			</div>
-			<House house={props.house } />
+			<House house={props.house 
+			} />
 		</div>
 	)
 
