@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './main_page.css';
 import Header from './header';
 
+let state = {}
+
 const fetchHouses = () => {
     fetch('/houses.json')
     .then(rsp => rsp.json())
