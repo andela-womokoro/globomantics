@@ -5,6 +5,7 @@ class HouseFIlter extends Component {
 
 	onSearchChange = (e) => {
 		const country = e.target.value;
+		this.props.filterHouses(country);
 	}
 
 	render() {

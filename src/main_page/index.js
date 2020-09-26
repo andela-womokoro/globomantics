@@ -36,11 +36,17 @@ class App extends Component {
         this.setState({ countries });
     }
 
+    filterHouses = (country) => {
+        const filteredHouses = this.allHouses.filter((h) => h.country === country);
+        this.setState({ filteredHouses });
+        this.setState({ country });
+    }
+
     render() {
       return (
         <div className="container">
             <Header subTitle="Providing houses all over the  world" />
-            <HouseFilter countries={this.state.countries} />
+            <HouseFilter countries={this.state.countries} filterHouses={this.filterHouses} />
             <FeaturedHouse house={this.state.featuredHouse} />
         </div>
       );
