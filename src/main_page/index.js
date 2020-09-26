@@ -37,9 +37,14 @@ class App extends Component {
     }
 
     filterHouses = (country) => {
+        this.setState({ activeHouse: null });
         const filteredHouses = this.allHouses.filter((h) => h.country === country);
         this.setState({ filteredHouses });
         this.setState({ country });
+    }
+
+    setActiveHouse = (house) => {
+        this.setState({ activeHouse: house });
     }
 
     render() {
