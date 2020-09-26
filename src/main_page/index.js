@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './main_page.css';
 import Header from './header';
 import FeaturedHouse from './featured_house';
+import HouseFilter from './house_filter';
 
 class App extends Component {
     state = {}
@@ -39,6 +40,7 @@ class App extends Component {
       return (
         <div className="container">
             <Header subTitle="Providing houses all over the  world" />
+            <HouseFilter countries={this.state.countries} />
             <FeaturedHouse house={this.state.featuredHouse} />
         </div>
       );
