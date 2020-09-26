@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SearchResultRow = (props) => {
+const SearchResultsRow = (props) => {
 	const setActive = (e) => {
 		e.preventDefault();
 		props.setActiveHouse(props.house);
@@ -15,4 +15,4 @@ const SearchResultRow = (props) => {
 	);
 }
 
-export default SearchResultRow;
+export default SearchResultsRow;

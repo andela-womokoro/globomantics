@@ -4,6 +4,8 @@ import './main_page.css';
 import Header from './header';
 import FeaturedHouse from './featured_house';
 import HouseFilter from './house_filter';
+import SearchResults from '../search_results';
+import HouseDetail from '../house';
 
 class App extends Component {
     state = {}
@@ -48,13 +50,21 @@ class App extends Component {
     }
 
     render() {
-      return (
-        <div className="container">
-            <Header subTitle="Providing houses all over the  world" />
-            <HouseFilter countries={this.state.countries} filterHouses={this.filterHouses} />
-            <FeaturedHouse house={this.state.featuredHouse} />
-        </div>
-      );
+        let activeComponent = null;
+        if (this.state.country)
+            activeComponent = <SearchResults country={this.state.country} filteredHouses={this.state.filteredHouses} setActiveHouse={this.setActiveHouse} />;
+        if (this.state.activeHouse)
+            activeComponent = <HouseDetail house={this.state.activeHouse} />;
+        if (!activeComponent)
+            activeComponent = <FeaturedHouse house={this.state.featuredHouse} />;
+
+        return (
+            <div className="container">
+                <Header subTitle="Providing houses all over the  world" />
+                <HouseFilter countries={this.state.countries} filterHouses={this.filterHouses} />
+                { activeComponent }
+            </div>
+        );
     }
 }
 
