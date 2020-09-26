@@ -17,6 +17,7 @@ class App extends Component {
         .then(allHouses => {
             this.allHouses = allHouses;
             this.determineFeaturedHouse();
+            this.determineUniqueCountries();
         })
     }
 
@@ -26,6 +27,12 @@ class App extends Component {
             const featuredHouse = this.allHouses[randomIndex];
             this.setState({ featuredHouse });
         }
+    }
+
+    determineUniqueCountries = () => {
+        const countries = this.allHouses ? Array.from(new Set(this.allHouses.map(h => h.country))) : [];
+        countries.unshift(null);
+        this.setState({ countries });
     }
 
     render() {
